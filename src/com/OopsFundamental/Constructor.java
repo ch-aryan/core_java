@@ -1,4 +1,13 @@
 package com.OopsFundamental;
+class Employee{
+    int r;
+    String dr;
+    Employee(int r, String dr){
+        this.r = r;
+        this.dr = dr;
+        System.out.println(r+" "+dr);
+    }
+}
 
 public class Constructor {
     int a = 10;
@@ -12,6 +21,7 @@ public class Constructor {
 
     public static void main(String[] args) {
         Constructor c = new Constructor(15, "Anil");
+        Employee ec = new Employee(9, "bhavana");
     }
 
 }
