@@ -1,6 +1,7 @@
 package com.OopsFundamental;
 class LaunchStu{
     private  int age;
+    private String name;
     int pass ;
     void disp(){
         System.out.println(   pass);
@@ -8,6 +9,12 @@ class LaunchStu{
     }
   void  setAge(int a){
         age = a;
+  }
+  void setName(String name){
+        this.name = name;
+  }
+  String getName(){
+        return name;
   }
   int getAge(){
         return  age;

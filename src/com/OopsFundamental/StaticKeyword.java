@@ -8,6 +8,12 @@ class LaunchStatic2{
     {
         count++;
     }
+    {
+        System.out.println("hi init 1");
+    }
+    {
+        System.out.println("hi init 2");
+    }
     LaunchStatic2(){
         System.out.println("zero pram");
     }
@@ -73,6 +79,7 @@ public class StaticKeyword {
 
         LaunchStatic2 obj2 = new LaunchStatic2();
         System.out.println(LaunchStatic2.count);
+
 
         LaunchStatic2 obj3 = new LaunchStatic2();
         System.out.println(LaunchStatic2.count);
