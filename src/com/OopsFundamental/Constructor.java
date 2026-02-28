@@ -12,7 +12,7 @@ class Employee{
 public class Constructor {
     int a = 10;
     String b = "Aryan";
-    public Constructor (int a, String b){
+    private Constructor (int a, String b){
         this.a = a;
         this.b= b;
         System.out.println(a +" " + b);
