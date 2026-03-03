@@ -6,6 +6,13 @@ import com.OopsFundamental.projectDelivery.services.FedEx;
 public class AmazonDelivery {
 private DeliveryService service;
 
+public AmazonDelivery(DeliveryService service){
+    this.service = service;//this is called constructor injection
+}
+
+public AmazonDelivery(){
+    //default constructor super() method is present
+}
     public void setService(DeliveryService service) {
         this.service = service;
     }
