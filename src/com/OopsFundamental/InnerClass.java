@@ -62,5 +62,21 @@ public class InnerClass {
 
             newObj.showZzz();
             newObj.methZZZ(1408);
+        System.out.println("****************");
+        //this is annomous object referring to none.
+        new Zzz(){
+            public void showZzz(){
+                System.out.println("this is something big");
+            }
+
+            public int methZZZ(int i){
+                System.out.println("this is methZZZ from anonomous inner class it is only used to override the methods of the class.");
+                return i;
+            }
+
+            public void hello(){
+                System.out.println("we can create new method but we can here access. in annonomous inner class or with obj");
+            }
+        }.hello();
     }
 }
