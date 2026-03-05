@@ -11,6 +11,8 @@ public class Exception1 {
         } catch (Exception e) {
             System.out.println("exception caught");
         }
-        System.out.println("this is execute whether the exception occured or handled or not ");
+        System.out.println("That statement executes **only if the exception is handled**.\n" +
+                "\n" +
+                "If the exception is **not handled**, the program **terminates before reaching it**. ");
     }
 }
