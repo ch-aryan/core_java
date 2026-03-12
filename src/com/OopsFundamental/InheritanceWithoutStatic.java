@@ -15,6 +15,8 @@ public class InheritanceWithoutStatic {
         H obj = new H();
         obj.mee();
 
+        System.out.println("************");
+
         N obj1 = new N();
         obj1.mee();
 
@@ -22,6 +24,8 @@ public class InheritanceWithoutStatic {
 
         H obj2 = new N();
         obj2.mee();
-        ((H)obj2).mee();
+
+        System.out.println("************");
+
     }
 }

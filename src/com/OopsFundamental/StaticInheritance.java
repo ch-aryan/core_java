@@ -2,7 +2,7 @@ package com.OopsFundamental;
 class Inherit1{
     static int a = 10;
     public static void inheritMeth(){
-        System.out.println("this parend class");
+        System.out.println("this parent static meth class");
     }
     public void nonStatic(){
         System.out.println("this is parent no static met");
@@ -12,7 +12,7 @@ class Inherit1{
 class Inherit2 extends Inherit1{
     public static void inheritMeth(){
 //        super.nonStatic(); this is not allowed becuase it is static method.
-        System.out.println("this is child class");
+        System.out.println("this is child class static method");
     }
     public  void nonStatic(){
         super.nonStatic();
@@ -37,6 +37,6 @@ public class StaticInheritance {
         Inherit1 obj2 = new Inherit2();
         Inherit2.inheritMeth();
         obj2.inheritMeth();
-//        Inherit1.inheritMeth();
+       Inherit1.inheritMeth();
     }
 }

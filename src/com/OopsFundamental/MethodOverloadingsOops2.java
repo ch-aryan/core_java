@@ -58,6 +58,9 @@ public class MethodOverloadingsOops2 {
 
         System.out.println("******");
 //        System.out.println(obj.mul(m,m)); compiler time error due to machine cannot think
+        System.out.println(obj.mul(m,x));
+        System.out.println(obj.mul(x,m));
+//        System.out.println(obj.mul(x,x)); error
 
 
     }

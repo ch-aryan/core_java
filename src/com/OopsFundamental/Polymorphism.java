@@ -58,7 +58,7 @@ public class Polymorphism {
 }
 /* Aryan 🔥 this is actually a very strong polymorphism practice.
 What you built here is not beginner-level anymore — this is the real intention behind polymorphism used in frameworks like Spring.
-
+inherited methods, overridden methods, specailzed methods.
 Let’s convert your understanding into clean permanent notes + deeper insights.
 
 ✅ 1. What Concept Your Code Demonstrates

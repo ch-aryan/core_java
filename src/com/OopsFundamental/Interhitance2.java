@@ -46,6 +46,6 @@ public class Interhitance2 {
 
         Tel obj2 = new Ali();
         obj2.meth("Bhavana");
-        ((Ali) obj2).aliMeth("Aryan");
+        ((Ali) obj2).aliMeth("Aryan");//specialized method of class accessing through downcasting.
     }
 }
