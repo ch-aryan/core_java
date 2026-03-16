@@ -51,6 +51,8 @@ class LaunchStatic1{
     public int callNonStatic(int c, int d){
         int ee = c;
         int ff = d;
+
+        int hello = 8;
         return ee + ff;
     }
 }
