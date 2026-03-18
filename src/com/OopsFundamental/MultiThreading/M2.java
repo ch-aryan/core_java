@@ -28,7 +28,7 @@ class Betta extends Thread{
     public void printStars() throws InterruptedException {
         for(int i =0;i<5;i++) {
             for (int j = 0; j < i; j++) {
-
+    Thread.sleep(2000);
                 System.out.println("* ");
             }
             System.out.println();
