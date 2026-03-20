@@ -3,6 +3,10 @@ interface I{
     public static final int var = 1;//bydefault var are public static final.
     void a();
     public abstract int b();
+    static void methInt(){
+        System.out.println("this is an first interface");
+        System.out.println("static methods cannot be inherited right.");
+    }
 //    void c(){
 //        System.out.println("We cannot create a body for interface class becuase we " +
 //                "can't achieve 100% polymorphism");
@@ -32,10 +36,13 @@ interface J extends  I{
     int x();
     void c();
     default int methWithBody(){
+        I.super.methWithBody();
         System.out.println("Not compulsory but if need arises we can override aslo. it is" +
                 "already inherited bydefault.");
         return 1;
     }
+
+
 
 }
 abstract  class KK implements J {
@@ -50,6 +57,7 @@ abstract  class KK implements J {
 class LL extends KK implements I,J{//or else we can write as class ll extends kk fine
 
     public int methWithBody() {
+        super.methWithBody();
         System.out.println("this is overridden meth mama from which class i don't know perfectly");
         return 1;
     }
@@ -124,7 +132,7 @@ public class Interface1 {
         KK obj1;// we can create a refernce for them.
         J objmain = new LL();
         ((LL)objmain).specializedMethOfLL();// accessing the specialized methods.
-
+    objmain.methWithBody();
         KK objmain0 = new LL();
 
         LL objmain1 = new LL();

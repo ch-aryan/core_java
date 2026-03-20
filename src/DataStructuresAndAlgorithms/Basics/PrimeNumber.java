@@ -1,4 +1,32 @@
 package DataStructuresAndAlgorithms.Basics;
+class SclarPrimeWithRange{
+    public static Boolean isPrimeNum(int n ){
+        for(int i =2;i * i <= n ; i++){
+            if(n % i == 0){
+               return false;
+            }
+        }
+        return true;
+    }
+    public static void PrintRange(int a, int b){
+        for(int i = Math.max(2, a); i <= b ; i++){
+            if(isPrimeNum(i)){
+                System.out.print(i+" ");
+            }
+        }
+    }
+}
+class ScalerPrime{
+    public static Boolean isNumPrime(int n){
+        for(int i = 2; i*i <= n ; i++){
+            if(n % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
 class isPrime {
 
 
@@ -30,6 +58,19 @@ public class PrimeNumber {
         int n = 5;
         isPrime obj = new isPrime();
         System.out.println(  obj.methPrime(n));
+        System.out.println("*******");
+
+        int nn = 19;
+        if(ScalerPrime.isNumPrime(nn)){
+            System.out.println("is a prime number from scaler method");
+        }else{
+            System.out.println("not a chance to get a prime");
+        }
+
+        System.out.println("*******");
+
+        SclarPrimeWithRange.PrintRange(1,100);
+
 //        int count = 0;
 ////        if ((n % 1 == 0) && (n % n == 0)) {
 ////            System.out.println("prime number or");no wrong.
