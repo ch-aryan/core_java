@@ -13,12 +13,15 @@ class Node{
 
 class LinkedList{
     Node head;
-    public void add(int data){
 
+    public void add(int data){
+        System.out.println(head);
         Node newNode = new Node(data);
 
         if(head == null){
             head = newNode;
+            System.out.println(head.data);//1 here it is one
+            System.out.println(head.next);// and next obviously null.
             return;
         }
 
@@ -69,7 +72,7 @@ public class LinkList {
        // obj.add(2,1);// --> add in the middle
         obj.addFirst(1);//--> add at index 0 means first index.
 
-
+        obj.print();
 
     }
 }
