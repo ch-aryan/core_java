@@ -1,10 +1,10 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Hashing;
 class Hashing{
     public int hash(int [] arr, int elm){
-        if(elm > 12){
+        if(elm > 100){
             return -1;
         }
-        int[] hashArr = new int[13];
+        int[] hashArr = new int[101];
 
         for(int i=0;i<arr.length;i++){
             hashArr[arr[i]]++;
@@ -16,7 +16,7 @@ class Hashing{
 }
 public class RepeatNumbers {
     public static void main(String[] args) {
-        int arr[] = {1,2,1,2,1,2,3,4,5,6,5,5,6,7,9,10};
+        int arr[] = {14,100,100,12,1,23,22,23,22,1};
         Hashing obj = new Hashing();
        int res =  obj.hash(arr, 1);
         System.out.println(res);
