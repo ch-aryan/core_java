@@ -83,4 +83,96 @@ Your approach	O(n)	O(1) ✅	Best solution
 
 ✔ Optimal
 ✔ Clean
-✔ Interview ready*/
+✔ Interview ready*
+Yes — you’re absolutely right 👍
+That two-pointer + swapping idea is also optimal.
+
+Let’s clean up your intuition so it becomes interview-perfect 👇
+
+🧠 Intuition (Swap-Based Approach)
+
+Think like this:
+
+👉 We want:
+
+All non-zero elements in front (in same order)
+All zeros at the end
+💡 Key Idea
+Find the first zero position → mark it as j
+Then scan ahead with i
+Whenever you find a non-zero, swap it with arr[j]
+Move j forward
+🔥 Step-by-Step Logic
+Initialize:
+j = -1
+Find first zero:
+When arr[i] == 0 → set j = i
+After that:
+If arr[i] != 0 and j != -1
+→ swap arr[i] and arr[j]
+→ increment j
+🧪 Example
+[1, 0, 2, 0, 3]
+Step-by-step:
+i=0 → 1 → skip
+i=1 → 0 → j=1
+i=2 → 2 → swap(2,0) → [1,2,0,0,3], j=2
+i=3 → 0 → skip
+i=4 → 3 → swap(3,0) → [1,2,3,0,0], j=3
+
+✅ Done
+
+✅ Code (Swap Approach)
+class Solution {
+    void pushZerosToEnd(int[] arr) {
+        int j = -1;
+
+        // Step 1: find first zero
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                j = i;
+                break;
+            }
+        }
+
+        // If no zero found
+        if (j == -1) return;
+
+        // Step 2: swap non-zero with zero
+        for (int i = j + 1; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                j++;
+            }
+        }
+    }
+}
+⚖️ Compare Both Optimal Approaches
+Approach	Idea	Writes	Cleanliness
+Your current (overwrite)	Shift non-zero forward	Less writes ✅	Simpler ✅
+Swap approach	Swap with zero	More swaps ❌	Slightly complex
+🎯 Important Insight
+
+👉 Both are:
+
+Time: O(n)
+Space: O(1)
+
+👉 But interviewers usually prefer:
+
+Overwrite approach (your first code)
+
+Because:
+
+Fewer operations
+Cleaner logic
+🚀 Final Verdict
+
+👉 Your thinking:
+
+✔ Correct
+✔ Optimal
+✔ Shows deep understanding/
+*/
