@@ -419,4 +419,110 @@ So always:
 pivot index = i + 1
 
 That’s all.
+Nice, this is a very important dry run — once you understand this, QuickSort becomes crystal clear 🔥
+
+You gave:
+
+arr = [1, 2, 3, 5, 4, 6]
+l = 3
+h = 5
+pivot = arr[h] = 6
+
+So we are only working on this subarray:
+
+[5, 4, 6]   (indices 3 to 5)
+🔹 Step 1: Initial Setup
+pivot = arr[h] = 6
+i = l - 1 = 3 - 1 = 2
+
+So:
+
+i = 2
+j will run from 3 → 4
+🔹 Step 2: Loop starts (for j = l to h-1)
+👉 Iteration 1: j = 3
+arr[j] = arr[3] = 5
+pivot = 6
+
+Check:
+
+5 < 6 ✅
+
+So:
+
+i++ → i = 3
+swap(arr, i, j) → swap(arr[3], arr[3])
+
+Array stays same:
+
+[1, 2, 3, 5, 4, 6]
+👉 Iteration 2: j = 4
+arr[j] = arr[4] = 4
+pivot = 6
+
+Check:
+
+4 < 6 ✅
+
+So:
+
+i++ → i = 4
+swap(arr, 4, 4)
+
+Array still same:
+
+[1, 2, 3, 5, 4, 6]
+🔹 Step 3: Final Pivot Swap
+
+After loop:
+
+swap(arr, i + 1, h)
+swap(arr, 5, 5)
+
+Array:
+
+[1, 2, 3, 5, 4, 6]
+🔹 Step 4: Return pivot index
+return i + 1 = 5
+🔥 Final Understanding
+What happened?
+All elements [5, 4] were already less than pivot (6)
+So:
+No real swaps happened
+Pivot stayed in same place
+🔹 After Partition
+
+Now recursive calls:
+
+quickSortRecursive(arr, 3, 4)   // LEFT
+quickSortRecursive(arr, 6, 5)   // RIGHT (ignored)
+🔹 Now focus on LEFT → [5, 4]
+New call:
+l = 3, h = 4
+pivot = arr[4] = 4
+i = 2
+Loop:
+j = 3 → arr[3] = 5
+5 < 4 ❌
+
+No swap
+
+Final swap:
+swap(arr, i+1, h) → swap(arr, 3, 4)
+
+Array becomes:
+
+[1, 2, 3, 4, 5, 6]
+🔥 Final Output
+[1, 2, 3, 4, 5, 6]
+💡 Key Insight (VERY IMPORTANT)
+
+When pivot is largest element (like 6):
+
+All elements go to left
+No real partition happens
+Worst-case behavior starts forming
+⚡ Pro Insight (Interview Level)
+
+If pivot is always the largest or smallest element, QuickSort degrades to O(n²).
  */
