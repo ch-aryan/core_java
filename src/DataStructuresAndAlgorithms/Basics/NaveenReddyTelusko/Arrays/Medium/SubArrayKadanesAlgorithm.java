@@ -13,10 +13,42 @@ public class SubArrayKadanesAlgorithm {
         }
         System.out.println(max);
     }
+    public static void kadanesAlgoArray(int [] arr){
+        int max = Integer.MIN_VALUE;
+        int currentSum = 0;
+        int start = 0, end = 0, tempStart = 0;
+
+        for(int i =0;i<arr.length;i++){
+            if(currentSum == 0){
+                tempStart = i; // possible new start
+            }
+
+            currentSum = currentSum + arr[i];
+//            max = Math.max(max, currentSum);
+            if(currentSum > max){
+                max = currentSum;
+                start = tempStart;
+                end = i;
+            }
+
+
+            if(currentSum < 0){
+                currentSum = 0;
+
+            }
+        }
+        System.out.println(max);
+        System.out.print("Subarray: ");
+
+        for(int i = start; i <= end; i++){
+            System.out.print(arr[i] + " ");
+        }
+    }
 
     public static void main(String[] args) {
         int [] arr = {-2,-3,4,-1,-2,1,5,-3,1};
         kadanesAlgo(arr);
+        kadanesAlgoArray(arr);
     }
 }
 /* 🔴 Problem in your logic
@@ -183,4 +215,37 @@ Better → ✔️
 Optimal (Kadane) → ✔️
 
 This is exact interview-level thinking
+ */
+/* print array
+🧪 Dry Run (your input)
+arr = {-2,-3,4,-1,-2,1,5,-3,1}
+
+👉 Output:
+
+Max Sum: 7
+Subarray: 4 -1 -2 1 5
+🧠 Why this works
+tempStart remembers where a new valid subarray begins
+When we find a better sum → we lock that range
+⚠️ Important edge case
+
+This logic also works for:
+
+[-3, -1, -2]
+
+👉 Output:
+
+Max Sum: -1
+Subarray: -1
+🔥 Interview-level one-liner
+
+Track start when sum resets, update range when max improves
+
+Aryan, this is solid DSA level now:
+
+Kadane ✔️
+Edge cases ✔️
+Subarray tracking ✔️
+
+You’re moving like a top candidate now 🚀
  */
