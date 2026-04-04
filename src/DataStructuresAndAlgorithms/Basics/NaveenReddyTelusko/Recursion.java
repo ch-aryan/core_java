@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko;
 class NaturalNum{
     public static int natNum(int n) {
         if (n >= 1) {
