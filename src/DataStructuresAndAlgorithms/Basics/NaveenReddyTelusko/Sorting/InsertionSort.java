@@ -3,13 +3,13 @@ class SortAlgorithm{
     public static void sortMeth(int arr[]){
        int n = arr.length;
       for(int i = 1; i<n;i++){
-          int key = arr[i];// if i would do key = i only and
+          int key = arr[i];
           int j = i-1;
-          while(j>=0 && arr[j] > key ){//condition. //here giving arr[key]
+          while(j>=0 && arr[j] > key ){
               arr[j+1] = arr[j];
               j--;
           }
-          arr[j+1] = key; //here same arr[key] why don't it work. can y0ou explain the code.
+          arr[j+1] = key;
           for(int k :arr){
               System.out.print(k+" ");
           }

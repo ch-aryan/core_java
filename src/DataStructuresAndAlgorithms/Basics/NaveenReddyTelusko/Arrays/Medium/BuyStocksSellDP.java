@@ -15,6 +15,18 @@ public class BuyStocksSellDP {
         }
         System.out.println(max);
     }
+    public static void AlgoBASSDPAI(int [] arr){
+        int buy = arr[0];
+        int max = 0;
+
+        for(int i = 1; i < arr.length; i++){
+            max = Math.max(max, arr[i] - buy);
+            buy = Math.min(buy, arr[i]);
+        }
+
+        System.out.println(max);
+    }
+
 
 
     public static void main(String[] args) {

@@ -25,6 +25,38 @@ public class MoveZeroToEnd {
     }
     }
 
+//✅ Code (Swap Approach)
+    class Solution {
+        void pushZerosToEnd(int[] arr) {
+            int j = -1;
+
+            // Step 1: find first zero
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] == 0) {
+                    j = i;
+                    break;
+                }
+            }
+
+            // If no zero found
+            if (j == -1) return;
+
+            // Step 2: swap non-zero with zero
+            for (int i = j + 1; i < arr.length; i++) {
+                if (arr[i] != 0) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    j++;
+                }
+            }
+        }
+    }
+/* Compare Both Optimal Approaches
+    Approach	Idea	Writes	Cleanliness
+    Your current (overwrite)	Shift non-zero forward	Less writes ✅	Simpler ✅
+    Swap approach	Swap with zero	More swaps ❌	Slightly complex */
+
 
     public static void main(String[] args) {
         int arr[] = {0, 0, 0, 1, 2, 0, 3, 4, 0};

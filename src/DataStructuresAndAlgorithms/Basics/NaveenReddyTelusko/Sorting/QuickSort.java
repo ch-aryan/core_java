@@ -525,4 +525,29 @@ Worst-case behavior starts forming
 ⚡ Pro Insight (Interview Level)
 
 If pivot is always the largest or smallest element, QuickSort degrades to O(n²).
+quickSort(0,5)  → pivot = 2
+Array: [1, 2, 6, 5, 4, 3]
+                    |
+         -----------------------
+         |                     |
+ quickSort(0,0)         quickSort(2,5)
+   (base case)            pivot = 3
+                      [1,2,3,5,4,6]
+                           |
+                ---------------------
+                |                   |
+         quickSort(2,1)      quickSort(3,5)
+          (invalid)           pivot = 6
+                          [1,2,3,5,4,6]
+                               |
+                     -------------------
+                     |                 |
+              quickSort(3,4)     quickSort(6,5)
+                pivot = 4         (invalid)
+             [1,2,3,4,5,6]
+                   |
+            ----------------
+            |              |
+     quickSort(3,2)   quickSort(4,4)
+      (invalid)         (base case)
  */

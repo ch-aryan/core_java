@@ -51,7 +51,127 @@ public class SubArrayKadanesAlgorithm {
         kadanesAlgoArray(arr);
     }
 }
-/* 🔴 Problem in your logic
+/*
+🧠 Kadane’s Algorithm (Maximum Subarray Sum)
+🎯 Problem
+
+Find the contiguous subarray with the maximum sum.
+
+💡 Core Intuition
+
+👉 At every index, you decide:
+
+“Should I extend the current subarray OR start fresh from here?”
+
+🔁 Key Idea
+
+If the current sum becomes negative → drop it
+
+Because:
+👉 A negative sum will only reduce future results
+
+🧾 Algorithm (Simple Form)
+int maxSum = Integer.MIN_VALUE;
+int currentSum = 0;
+
+for (int i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+
+    maxSum = Math.max(maxSum, currentSum);
+
+    if (currentSum < 0) {
+        currentSum = 0;
+    }
+}
+📊 Dry Run Example
+
+Array:
+
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+i	arr[i]	currentSum	maxSum
+0	-2	-2	-2
+1	1	1	1
+2	-3	-2	1
+3	4	4	4
+4	-1	3	4
+5	2	5	5
+6	1	6	6
+7	-5	1	6
+8	4	5	6
+
+👉 Answer = 6 → subarray [4, -1, 2, 1]
+
+📍 If you need the subarray (IMPORTANT)
+int maxSum = Integer.MIN_VALUE;
+int currentSum = 0;
+
+int start = 0, end = 0, tempStart = 0;
+
+for (int i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+
+    if (currentSum > maxSum) {
+        maxSum = currentSum;
+        start = tempStart;
+        end = i;
+    }
+
+    if (currentSum < 0) {
+        currentSum = 0;
+        tempStart = i + 1;
+    }
+}
+
+👉 Subarray = arr[start → end]
+
+⚠️ Edge Case (VERY IMPORTANT)
+❗ All elements negative
+
+Example:
+
+[-5, -2, -8]
+
+Normal Kadane fails (returns 0 ❌)
+
+✅ Fix
+int maxSum = arr[0];
+int currentSum = arr[0];
+
+for (int i = 1; i < arr.length; i++) {
+    currentSum = Math.max(arr[i], currentSum + arr[i]);
+    maxSum = Math.max(maxSum, currentSum);
+}
+
+👉 This works for all cases
+
+🧠 Mental Model
+
+At each index:
+
+currentSum = max(arr[i], currentSum + arr[i])
+
+👉 Either:
+
+Start new subarray
+Continue previous one
+⏱ Complexity
+Time: O(n)
+Space: O(1)
+🔥 When to use Kadane
+
+Use when you see:
+
+“Maximum subarray”
+“Contiguous subarray”
+“Maximum sum”
+“Largest segment”
+🚀 Pro Tips (Interview Gold)
+Kadane is greedy + DP combo
+Always ask:
+“Can I drop negative prefix?”
+Remember both versions:
+Basic
+All-negative safe version🔴 Problem in your logic
 if(currentSum > 0){
     max = Math.max(max, currentSum);
 }else{

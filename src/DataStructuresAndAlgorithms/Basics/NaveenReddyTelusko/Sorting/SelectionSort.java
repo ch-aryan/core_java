@@ -1,11 +1,11 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Sorting;
-class SelectionAlgo{
-    public static void selectionMeth(int[] arr){
-        int minIndex = -1;
-        for(int i =0 ; i<arr.length-1; i++){
-            minIndex = i;
-            for(int j =i+1 ; j< arr.length; j++){
-                if(arr[minIndex] > arr[j]){
+class SelectionAlgo {
+    public static void selectionMeth(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+           int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minIndex] > arr[j]) {
                     minIndex = j;
                 }
             }
@@ -13,16 +13,15 @@ class SelectionAlgo{
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
 
-            for(int k : arr){
-                System.out.print(k+" ");
+            for (int k : arr) {
+                System.out.print(k + " ");
             }
             System.out.println();
         }
 
-        for(int i =0;i< arr.length;i++){
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
-
 
 
     }
@@ -38,6 +37,9 @@ public class SelectionSort {
         }
         System.out.println();
         SelectionAlgo.selectionMeth(arr);
+
+        System.out.println("****************");
+
     }
 }
 /* What is Selection Sort

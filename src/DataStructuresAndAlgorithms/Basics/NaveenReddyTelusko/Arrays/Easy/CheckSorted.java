@@ -20,8 +20,8 @@ public class CheckSorted {
 
         int[] arr1 = {4,3,4,2,3};
 
-        System.out.println( SortedArr(arr));
-        System.out.println( SortedArr(arr1));
+       System.out.println( SortedArr(arr));
+//        System.out.println( SortedArr(arr1));
 
     }
 }

@@ -9,8 +9,20 @@ class BubbleAlgo{
                     arr[j+1] = arr[j];
                     arr[j] = temp;
                 }
+                for(int k: arr){
+                    System.out.print(k+" ");
+                }
+                System.out.println();
+
             }
+            System.out.println("after 1 loop");
+            for(int k: arr){
+                System.out.print(k+" ");
+            }
+            System.out.print("**************8");
+            System.out.println();
         }
+        System.out.println();
         for(int i: arr){
             System.out.print(i+" ");
         }
@@ -20,6 +32,10 @@ class BubbleAlgo{
 public class BubbleSort {
     public static void main(String[] args) {
         int arr[] = {9,6,5,4,3,2,1};
+        for(int k: arr){
+            System.out.print(k+" ");
+        }
+        System.out.println();
         BubbleAlgo.methBub(arr);
     }
 }

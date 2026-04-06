@@ -1,6 +1,54 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Arrays.Medium;
 
 import java.util.ArrayList;
+// Java program to rearrange positive and negative numbers
+// alternately using Two pointers
+import java.util.*;
+
+class GfG {
+//gfg code.
+    // Function to rearrange positive and negative numbers
+    // in alternate fashion
+    static void rearrange(ArrayList<Integer> arr) {
+        ArrayList<Integer> pos = new ArrayList<>();
+        ArrayList<Integer> neg = new ArrayList<>();
+
+        // Separate positive and negative numbers
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) >= 0)
+                pos.add(arr.get(i));
+            else
+                neg.add(arr.get(i));
+        }
+
+        int posIdx = 0, negIdx = 0;
+        int i = 0;
+
+        // Place positive and negative numbers alternately
+        // in the original array
+        while (posIdx < pos.size() && negIdx < neg.size()) {
+            if (i % 2 == 0)
+                arr.set(i++, pos.get(posIdx++));
+            else
+                arr.set(i++, neg.get(negIdx++));
+        }
+
+        // Append remaining positive numbers (if any)
+        while (posIdx < pos.size())
+            arr.set(i++, pos.get(posIdx++));
+
+        // Append remaining negative numbers (if any)
+        while (negIdx < neg.size())
+            arr.set(i++, neg.get(negIdx++));
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(1, 2, 3, -4, -1, 4));
+        rearrange(arr);
+        for (int i = 0; i < arr.size(); i++)
+            System.out.print(arr.get(i) + " ");
+    }
+}
 
 public class RearrangeSigns {
     public static void AlgorithmLogical(ArrayList<Integer> arr) {
@@ -52,6 +100,37 @@ public class RearrangeSigns {
         AlgorithmLogical(arr);
     }
 }
+/*
+Given an array arr[] of size n, the task is to rearrange it in alternate positive and negative manner without changing the relative order of positive and negative numbers. In case of extra positive/negative numbers, they appear at the end of the array.
+
+Note: The rearranged array should start with a positive number and 0 (zero) should be considered as a positive number.
+
+Examples:
+
+Input:  arr[] = [1, 2, 3, -4, -1, 4]
+Output: arr[] = [1, -4, 2, -1, 3, 4]
+
+Input:  arr[] = [-5, -2, 5, 2, 4, 7, 1, 8, 0, -8]
+Output: arr[] = [5, -5, 2, -2, 4, -8, 7, 1, 8, 0]
+Working of Code With Example :
+
+1. Let us consider arr = [1, 2, 3, -4, -1, 4]
+
+2. First we create two vectors to store positive and negative numbers of the given array
+
+pos[] = [1, 2, 3, 4], neg[] = [-4, -1]
+
+4. Now we traverse both pos[] and neg[] and fill elements back into arr[] at alternate indexs
+
+i = 0, Since i is even, we pick from pos, arr = [1, _, _, _, _, _]
+i = 1, Since i is odd, we pick from neg, arr = [1, -4, _, _, _, _]
+i = 2, Since i is even, we pick from pos, arr = [1, -4, 2, _, _, _]
+i = 3, Since i is odd, we pick from neg, arr = [1, -4, 2, -1, _, _]
+5. One List Exhausted, neg[] in this case, so we put remaining pos[] elements
+
+Remaining pos[] = [3, 4]
+Final arr[] = [1, -4, 2, -1, 3, 4]
+ */
 /* ❌ 1. Biggest Issue: arr.set() arguments are reversed
 
 You wrote:

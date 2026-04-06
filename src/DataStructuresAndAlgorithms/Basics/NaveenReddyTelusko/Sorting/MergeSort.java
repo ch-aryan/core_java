@@ -82,6 +82,53 @@ class MergeSortAlgo{
     }
 }*/
 }
+//strivers a to z explaination.
+class Solution {
+
+    void mergeSort(int arr[], int l, int r) {
+        // code here
+        if(l<r){
+            int mid = (l + r)/2;
+            mergeSort(arr, l, mid);
+            mergeSort(arr,mid+1, r);
+
+            merge(arr,l,mid,r);
+        }
+    }
+
+    void merge(int[] arr, int l, int mid, int r){
+        int[] temp = new int [r-l+1];
+        int low = l;
+        int high = mid+1;
+        int k = 0;
+
+        while(low<=mid && high <= r){
+            if(arr[low] <= arr[high]){
+                temp[k++] = arr[low];
+                low++;
+
+            }else{
+                temp[k++] = arr[high];
+                high++;
+
+            }
+        }
+        while(low<=mid){
+            temp[k++] = arr[low];
+            low++;
+        }
+        while(high<=r){
+            temp[k++] = arr[high];
+            high++;
+        }
+        for(int i= l ; i<=r;i++){// 👉 IMPORTANT:
+
+            //temp always starts from index 0
+            //But in original array, we must place it from index l
+            arr[i] = temp[i-l];
+        }
+    }
+}
 
 public class MergeSort {
     public static void main(String[] args) {
@@ -397,4 +444,105 @@ n log n
 
 That is the real intuition behind complexity.
 
-If you want next, I can:*/
+If you want next, I can:
+ i didn't understand the coping step . that's it.    everything else i got it.
+
+Got you Aryan — this is the only tricky part in merge sort, and once this clicks, everything becomes crystal clear 👌
+
+Let’s slow down and focus ONLY on the copying step.
+
+🧠 Situation Before Copying Back
+
+After merging, we have:
+
+Example:
+arr = [5, 3, 6, 1, 4, 2]
+
+Suppose we are merging:
+
+l = 2, mid = 3, r = 5
+
+After merge process, temp becomes:
+
+temp = [1, 4, 6]   // sorted version of arr[2...5]
+
+👉 IMPORTANT:
+
+temp always starts from index 0
+But in original array, we must place it from index l
+🔥 The Confusion
+
+You wrote:
+
+arr[i] = temp[i];
+
+👉 This is WRONG because:
+
+i starts from l
+But temp starts from 0
+🎯 Correct Logic
+arr[i] = temp[i - l];
+🧩 Why i - l ?
+
+Let’s visualize 👇
+
+Suppose:
+l = 2
+r = 5
+
+We loop:
+
+for(int i = l; i <= r; i++)
+
+So i values are:
+
+i = 2, 3, 4, 5
+Now mapping:
+i (arr index)	temp index (i - l)
+2	0
+3	1
+4	2
+5	3
+💡 So what’s happening?
+
+👉 We are shifting indices:
+
+arr[2] = temp[0]
+arr[3] = temp[1]
+arr[4] = temp[2]
+arr[5] = temp[3]
+🧠 Simple Analogy
+
+Think like this:
+
+👉
+"temp starts from 0
+but arr starts from l
+so subtract l to align them"
+
+🔥 SUPER SIMPLE WAY TO REMEMBER
+
+👉
+"temp is always 0-based, arr is l-based"
+
+So:
+
+temp index = i - l
+🚀 Alternative (Even Simpler Way)
+
+If this still feels confusing, use this:
+
+int k = 0;
+for(int i = l; i <= r; i++){
+    arr[i] = temp[k++];
+}
+
+👉 This avoids i - l completely 😄
+
+🎯 Final Takeaway
+You did everything right
+Only confusion was index alignment
+
+Honestly Aryan, this doubt is a very good sign
+👉 It means you're not blindly coding — you're trying to understand deeply
+ */
