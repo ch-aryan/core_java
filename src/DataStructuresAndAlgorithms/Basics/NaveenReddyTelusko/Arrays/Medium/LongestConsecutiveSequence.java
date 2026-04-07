@@ -6,14 +6,14 @@ import java.util.HashSet;
 public class LongestConsecutiveSequence {
 
     //bruteforce
-    public int longest(int [] arr){
+    public static int longest1(int [] arr){
         int longest =1;
-        int n = arr.length;
+        int n = arr.length;// n cube tc
         for(int i=0;i<n;i++){
             int x = arr[i];
           int  count = 1;
-          while(ls(arr,x+1 ) == true){
-              count ++;
+          while(ls(arr, x + 1)){
+
               x = x+1;
               count++;
 
@@ -23,9 +23,9 @@ public class LongestConsecutiveSequence {
         }
         return  longest;
     }
-    public boolean ls(int[] arr, int val){
+    public  static boolean ls(int[] arr, int val){
         for(int i=0;i<arr.length;i++){
-            if(arr[i]+1 == val){
+            if(arr[i] == val){
                 return true;
             }
         }
@@ -47,7 +47,7 @@ public class LongestConsecutiveSequence {
 
             }else{
 
-                count = 0;
+                count = 1;
 
             }
         }
@@ -65,15 +65,23 @@ public class LongestConsecutiveSequence {
         for(int i : set){
             if(!set.contains(i-1)){
                  count = 1;
-                int start = i;
+                int start = i;//current element.
                 while(set.contains(start+1)){
-                    start++;
+                    start++;//current element is one then next is 2.
                     count ++;
                 }
+                max = Math.max(count, max);
             }
-            max = Math.max(count, max);
+
         }
         System.out.println(max);
+    }
+    public static void main(String[] args)
+    {
+        int[] arr = { 2, 2, 3, 1, 4, 5, 6 };
+        System.out.println(longest1(arr));
+
+        new LongestConsecutiveSequence().OptimalHashSet(arr);//because this is not static method.
     }
 
 }
