@@ -11,7 +11,7 @@ public class ArithmaticProgression {
 
         public static void main(String[] args) {
 
-            int a = 3;   // first term
+            int a = 1;   // first term
             int d = 3;   // common difference
             int n = 10;  // number of terms
 

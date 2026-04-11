@@ -33,6 +33,109 @@ public class IsPrime6kPLus1Logic {
 
     }
 }
+/*
+Good observation 👀 — you’re thinking like a real programmer now.
+
+👉 Your statement is correct:
+6k ± 1 rule is NOT perfect for identifying primes.
+
+🔴 Why 25 breaks your understanding
+
+Take 25:
+
+👉 25 = 6×4 + 1 → fits 6k + 1 form ✅
+👉 But 25 = 5 × 5 → NOT prime ❌
+
+So yes — your doubt is valid.
+
+💡 Important Truth (THIS is the key concept)
+
+👉 6k ± 1 is NOT a prime test
+👉 It is only a filter (candidate generator)
+
+🧠 Think like this
+
+All primes > 3 are of form:
+
+👉 6k − 1 or 6k + 1 ✅
+
+BUT…
+
+❗ Not all numbers of this form are prime
+
+🔍 Example to make it crystal clear
+
+Numbers of form 6k ± 1:
+
+5 ✅ prime
+7 ✅ prime
+11 ✅ prime
+13 ✅ prime
+17 ✅ prime
+19 ✅ prime
+23 ✅ prime
+25 ❌ not prime
+35 ❌ not prime (5×7)
+
+👉 So this rule gives possible primes, not guaranteed primes.
+
+🔧 Why your code still works for 25
+
+Let’s dry run your code:
+
+n = 25
+
+Step-by-step:
+
+Not ≤ 3
+Not divisible by 2 or 3
+Enter loop:
+
+👉 i = 5
+
+Check:
+
+25 % 5 == 0  → TRUE
+
+👉 Immediately returns false
+
+✔️ So your code correctly identifies 25 as NOT prime
+
+🚀 Real meaning of your loop
+for(int i = 5; i*i <= n; i += 6)
+
+You are checking:
+
+👉 5, 7
+👉 11, 13
+👉 17, 19
+👉 ...
+
+So even though 25 fits 6k+1,
+you still check divisibility by 5 → caught!
+
+🎯 Final Understanding (VERY IMPORTANT)
+
+👉 6k ± 1 rule = Optimization technique
+👉 NOT = Prime guarantee
+
+🧠 Developer mindset takeaway
+
+Think like this:
+
+“I don’t need to check all numbers…
+I only check numbers that can possibly divide n.”
+
+That’s why:
+
+We skip multiples of 2 and 3
+We only test smart candidates
+But we STILL verify divisibility
+⚡ One-line conclusion
+
+👉 All primes follow 6k ± 1
+👉 But not all 6k ± 1 numbers are prime
+ */
 /* ⭐ The powerful idea: 6k ± 1 Rule
 
 After understanding √n logic, mathematicians observed something interesting:

@@ -3,7 +3,7 @@ package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.BasicMaths;
 public class NCRFormulaCode {
     public static void main(String[] args) {
         int n = 10; int r = 3;
-        int res = 1;
+        int res = 1;//r = Math.min(r, n-r); if r = 7 we can take r = 3.
         for(int i=0;i<r;i++){
             res = (res *  (n-i))/(i+1);
         }
@@ -172,5 +172,123 @@ DSA interviews
 👉 Instead of computing full factorials,
 compute nCr by multiplying numerator and dividing denominator
 step-by-step to avoid overflow and reduce time complexity.
+Yes 👍 absolutely correct!
 
+(
+10
+7
+)
+=
+(
+10
+3
+)
+(
+7
+10
+	​
+
+)=(
+3
+10
+	​
+
+)
+🔥 Why this is true
+
+This comes from a very important identity in combinations:
+
+(
+𝑛
+𝑟
+)
+=
+(
+𝑛
+(
+𝑛
+−
+𝑟
+)
+)
+(
+r
+n
+	​
+
+)=(
+(n−r)
+n
+	​
+
+)
+🧠 Intuition (very important)
+
+Choosing 7 items out of 10
+is the same as
+👉 leaving 3 items out of 10
+
+Because:
+
+If you select 7, automatically 3 are not selected
+If you select 3 to exclude, automatically 7 are selected
+
+👉 Same situation, just different perspective
+
+🔍 Example with numbers
+(
+10
+7
+)
+=
+10
+!
+7
+!
+⋅
+3
+!
+(
+7
+10
+	​
+
+)=
+7!⋅3!
+10!
+	​
+
+(
+10
+3
+)
+=
+10
+!
+3
+!
+⋅
+7
+!
+(
+3
+10
+	​
+
+)=
+3!⋅7!
+10!
+	​
+
+
+👉 Both are exactly same expression ✔️
+
+🎯 Final takeaway
+
+👉 nCr = nC(n-r) is a VERY important identity
+👉 Always use it to reduce calculations
+
+Example:
+
+Instead of calculating 10C7, just do 10C3 (easier)
  */

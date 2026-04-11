@@ -20,9 +20,10 @@ public class FactorsOfN {
         }
         for(int i=1; i*i < n ; i++){
             if(n % i == 0){
-                int q = n/i;
+
                 System.out.println(i);
-                System.out.println(q);
+                if(i != n/i)
+                System.out.println(n/i);
             }
         }
 
