@@ -5,3 +5,4 @@ public interface AllCourses {
 
     Boolean course(int amount);
 }
+//comment
