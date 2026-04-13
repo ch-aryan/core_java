@@ -1,5 +1,40 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Arrays.Easy;
 
+import java.util.ArrayList;
+
+//another problem.
+/* Remove Duplicates Sorted Array
+Difficulty: EasyAccuracy: 38.18%Submissions: 368K+Points: 2Average Time: 20m
+You are given a sorted array arr[] containing positive integers. Your task is to remove all duplicate elements from this array such that each element appears only once. Return an array containing these distinct elements in the same order as they appeared.
+Examples :
+
+Input: arr[] = [2, 2, 2, 2, 2]
+Output: [2]
+Explanation: After removing all the duplicates only one instance of 2 will remain i.e. [2] so modified array will contains 2 at first position and you should return array containing [2] after modifying the array.
+
+ */
+class Solution {
+    ArrayList<Integer> removeDuplicates(int[] arr) {
+        // code here
+        ArrayList<Integer> al = new ArrayList<>();
+        //two pointers
+        int i =0;
+        al.add(arr[i]);
+        int j = 1;
+        while(j<arr.length){
+            if(arr[i]==arr[j]){
+                j++;
+            }
+            else if(arr[i] != arr[j]){
+                al.add(arr[j]);
+                i = j;
+                j++;
+            }
+        }
+        return al;
+    }
+}
+
 public class RemoveDuplicatesSortedArr {
 
         public int removeDuplicates(int[] nums) {
