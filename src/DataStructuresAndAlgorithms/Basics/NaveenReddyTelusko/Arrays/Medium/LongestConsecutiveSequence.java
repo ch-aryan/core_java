@@ -376,3 +376,116 @@ While loop → overall still O(n)
 “I only start counting when I find the beginning of a sequence”
 
  */
+
+/* why big 0 of n for the hashset imp.
+🔥 Your Main Doubt
+
+You’re thinking:
+
+“After processing 1 → 2 → 3 → 4 in the while, won’t the for loop again start from 2, 3, 4 and redo the work?”
+
+👉 Short answer:
+Yes, the for loop will visit 2, 3, 4 — but it will NOT enter the while loop again for them.
+
+🧠 The Key Idea (This is EVERYTHING)
+
+This line:
+
+if(!set.contains(i - 1))
+
+👉 means:
+
+“Only start counting if i is the start of a sequence”
+
+✅ Let’s Dry Run Your Example
+Input:
+[1,2,3,4,6,7,8,9,10]
+Set:
+{1,2,3,4,6,7,8,9,10}
+🔄 Loop Execution Step-by-Step
+👉 i = 1
+if(!set.contains(0)) → TRUE ✅
+
+➡️ Start of sequence → enter while
+
+1 → 2 → 3 → 4
+
+👉 count = 4
+👉 max = 4
+
+👉 i = 2
+if(!set.contains(1)) → FALSE ❌
+
+👉 Skip ❗ (IMPORTANT)
+
+👉 i = 3
+if(!set.contains(2)) → FALSE ❌
+
+👉 Skip ❗
+
+👉 i = 4
+if(!set.contains(3)) → FALSE ❌
+
+👉 Skip ❗
+
+👉 i = 6
+if(!set.contains(5)) → TRUE ✅
+
+➡️ Start new sequence
+
+6 → 7 → 8 → 9 → 10
+
+👉 count = 5
+👉 max = 5
+
+👉 i = 7,8,9,10
+
+All skipped ❌
+
+💡 Final Understanding
+❗ VERY IMPORTANT:
+while runs only for sequence starting points
+Each number is part of a while loop ONLY ONCE in total
+⚡ Why Time Complexity is O(n)
+
+Let’s break it:
+
+1️⃣ First loop:
+for(int i : arr)
+
+👉 O(n)
+
+2️⃣ Second loop:
+for(int i : set)
+
+👉 O(n)
+
+3️⃣ While loop:
+
+Looks scary, but:
+
+👉 Each element is visited only once across ALL while loops combined
+
+Because:
+
+1,2,3,4 → processed only when i = 1
+6,7,8,9,10 → processed only when i = 6
+
+👉 So total work = n steps, not n²
+
+🧠 Intuition (Super Simple)
+
+Think like this:
+
+“We only walk forward from the start of sequences, never from the middle.”
+
+🚀 One-Line Killer Explanation (Interview Style)
+
+“Although there is a nested while loop, each element is processed at most once because we only start sequences from numbers whose previous element is absent. Hence overall time complexity is O(n).”
+
+🔥 Final Clarity
+Concern	Reality
+Will for loop revisit elements?	YES
+Will while loop run again for them?	NO ❌
+Total work done	Linear O(n) ✅
+ */

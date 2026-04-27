@@ -29,12 +29,13 @@ public class MatrixZeroes9 {
                 }
             }
         }
-
+//ENTIRE row
         if(mat[0][0] == 0){
             for(int j=0;j<m;j++){
                 mat[0][j] = 0;
             }
         }
+        //entire column
         if(c0 == 0){
             for(int i=0;i<n;i++){
                 mat[i][0] = 0;

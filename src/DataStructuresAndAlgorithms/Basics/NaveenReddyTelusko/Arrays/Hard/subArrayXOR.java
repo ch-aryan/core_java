@@ -40,6 +40,7 @@ public class subArrayXOR {
     //using the optimal soltuion prefixXor hasing, map
     public long subarrayXor(int arr[], int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0,1);
         int n= arr.length;
         int pXor  = 0;
         long result = 0;

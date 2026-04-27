@@ -97,7 +97,21 @@ Stop when sum exceeds k
         return maxLen;
      }
 
+/*
+💡 Why this works for both +ve and -ve numbers
 
+Your code is based on the prefix sum + HashMap technique, which works regardless of sign.
+
+Let’s break the logic in a simple way:
+
+You keep a running sum
+You store the first occurrence of each prefix sum in the map
+You check:
+If sum == k → subarray from 0 → i
+If (sum - k) exists in map → subarray exists
+
+👉 This logic does NOT depend on whether numbers are positive or negative.
+ */
 
 
 
