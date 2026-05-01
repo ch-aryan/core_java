@@ -15,7 +15,7 @@ public class ActivitySelection {
 
         int CurFin = resArr[0][1];
         int count =1;
-        for(int i=0;i<n;i++){
+        for(int i=1;i<n;i++){
             if(resArr[i][0] > CurFin){
                 count++;
                 CurFin = resArr[i][1];

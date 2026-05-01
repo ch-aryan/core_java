@@ -9,7 +9,7 @@ public class MinimumJumps {
         int currEnd = 0;
         int farthest = 0;
         int jump =0;
-        for(int i=0;i<n;i++) {
+        for(int i=0;i<n-1;i++) {
             farthest = Math.max(farthest, i + arr[i]);
 
             if (i == currEnd) {
@@ -22,6 +22,33 @@ public class MinimumJumps {
         }
             return jump;
         }
+
+    public static int MinJumpsGreed1(int arr[]) {
+
+        int n = arr.length;
+        if (n <= 1) return 0;
+        if (arr[0] == 0) return -1;
+
+        int currEnd = 0;
+        int farthest = 0;
+        int jumps = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+
+            farthest = Math.max(farthest, i + arr[i]);
+
+            // If we cannot move forward
+            if (i > farthest) return -1;
+
+            // When we reach end of current jump range
+            if (i == currEnd) {
+                jumps++;
+                currEnd = farthest;
+            }
+        }
+
+        return jumps;
+    }
 
     public static void main(String[] args) {
         int arr[] = {1,3,5,8,9,1,2,3,4,9,1};
