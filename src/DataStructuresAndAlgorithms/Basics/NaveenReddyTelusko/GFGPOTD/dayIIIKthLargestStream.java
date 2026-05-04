@@ -1,7 +1,6 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.LeetCodePOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class dayIIIKthLargestStream {

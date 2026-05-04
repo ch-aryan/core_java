@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.LeetCodePOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
 
 public class dayIMinSwaps {
     public static int minSwapsTo1(int [] arr){

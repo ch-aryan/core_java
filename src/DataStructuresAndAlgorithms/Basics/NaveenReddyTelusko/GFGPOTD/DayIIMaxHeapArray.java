@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.LeetCodePOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
 
 public class DayIIMaxHeapArray {
     public static boolean algorithmEasy(int []arr){

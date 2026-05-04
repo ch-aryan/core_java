@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.LeetCodePOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
 
 public class dayIVPostionSetBit {
     public static int methodPT(int n){
