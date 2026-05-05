@@ -10,6 +10,7 @@ class StaticMeth{
     }
 
     public static void meth1(int d){
+
         System.out.println();
     }
 
