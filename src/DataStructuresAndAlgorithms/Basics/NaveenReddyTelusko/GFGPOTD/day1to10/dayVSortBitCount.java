@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD.day1to10;
 
 import java.util.ArrayList;
 //always remember  1 % 2 = 1. because 2 cannot go in once so remainder stays as it as for ex used for 32. 16, all 2 powers.

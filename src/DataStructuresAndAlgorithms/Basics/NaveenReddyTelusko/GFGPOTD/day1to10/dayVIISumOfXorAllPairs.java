@@ -1,4 +1,4 @@
-package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD;
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD.day1to10;
 
 public class dayVIISumOfXorAllPairs {
     //i did it using the two for loops bruteforce but all test cases are not passed.

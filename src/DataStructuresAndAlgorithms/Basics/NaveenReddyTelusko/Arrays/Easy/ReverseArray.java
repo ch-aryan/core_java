@@ -16,7 +16,7 @@ public class ReverseArray {
 
     public static void main(String[] args) {
         int arr[] = {1, 2, 3, 4, 5};
-        int arr1[] = {1,2,3,4,5};
+
 
         int i = 0;
         int j = arr.length - 1;
@@ -33,7 +33,7 @@ public class ReverseArray {
         }
 
         System.out.println("*****************");
-        ReverseThroughSwap(arr1);
+        ReverseThroughSwap(arr);
 
 
     }

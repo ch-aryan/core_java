@@ -33,7 +33,34 @@ public class InsertionSort {
         SortAlgorithm.sortMeth(arr);
     }
 }
-/* Good 👍 now this is a very important conceptual doubt.
+/*
+✅ Insertion Sort — Actual Definition
+
+Insertion sort is a comparison-based sorting algorithm that builds the final sorted array one element at a time by taking each element and inserting it into its correct position within the already sorted portion of the array.
+
+🧠 Main Idea (Algorithm in Words)
+Divide the array into two parts:
+Left side → sorted
+Right side → unsorted
+Initially:
+The first element is considered already sorted
+For each element from index 1 to n-1:
+Pick the current element (called the key)
+Compare it with elements in the sorted part (left side)
+Shift larger elements one position to the right
+Insert the key at its correct position
+Repeat until all elements are placed correctly
+🔑 In one clean line (for interviews)
+
+Insertion sort takes each element and inserts it into its correct position in the already sorted portion by shifting larger elements to the right.
+
+⚡ Key Understanding (very important)
+Unlike selection sort:
+❌ No direct swapping
+✅ Uses shifting
+It is similar to how you arrange playing cards in your hand:
+Pick a card → place it in the correct position
+Good 👍 now this is a very important conceptual doubt.
 You are very close to deep understanding of insertion sort.
 
 Let’s do exactly what you asked → clear dry run of YOUR wrong logic.

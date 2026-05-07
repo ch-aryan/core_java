@@ -38,3 +38,15 @@ Means:
 If interviewer asks strictly increasing, use:
 
 arr[i] > arr[i-1]*/
+
+/*
+best version
+public static boolean isSorted(int[] arr) {
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
+            return false; checking in the different order see
+        }
+    }
+    return true;
+}
+ */
