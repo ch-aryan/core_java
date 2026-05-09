@@ -1,6 +1,35 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Arrays.Easy;
 
 import java.util.Arrays;
+/*
+All matching numbers cancel → missing number remains
+✅ Code (XOR Method)
+public int missingNumber(int[] nums) {
+    int xor = 0;
+    int n = nums.length;
+
+    // XOR all numbers from 0 to n
+    for (int i = 0; i <= n; i++) {
+        xor ^= i;
+    }
+
+    // XOR all elements in array
+    for (int num : nums) {
+        xor ^= num;
+    }
+
+    return xor;
+}
+⚡ Even Cleaner Version
+public int missingNumber(int[] nums) {
+    int xor = nums.length;
+
+    for (int i = 0; i < nums.length; i++) {
+        xor ^= i ^ nums[i];
+    }
+
+    return xor;
+}*/
 
 public class MissingNumberinRange {
     public int missingNumber1(int[] nums) {
