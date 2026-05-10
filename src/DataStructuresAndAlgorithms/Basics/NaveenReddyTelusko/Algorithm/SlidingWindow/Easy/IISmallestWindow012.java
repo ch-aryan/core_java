@@ -61,8 +61,8 @@ public class IISmallestWindow012 {
             }
 
             if(cnt == 3){
-                while(freq[s.charAt(j) -'0'] > 1){
-                    freq[s.charAt(j)-'0']--;
+                while(freq[s.charAt(i) -'0'] > 1){
+                    freq[s.charAt(i)-'0']--;
                     i++;
                 }
                 res = Math.min(res, j-i+1);
