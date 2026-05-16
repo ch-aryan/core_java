@@ -19,7 +19,7 @@ public class BinarySearchCode {
     }
     public static void main(String[] args) {
         //array must be sorted
-        int arr[] = {3,5,6,6,9,21,112};
+        int arr[] = {3,4,5,6,6,9,21,112};
         int tar = 6;
         int i = BinaryCode(arr, tar);
         System.out.println(i);
