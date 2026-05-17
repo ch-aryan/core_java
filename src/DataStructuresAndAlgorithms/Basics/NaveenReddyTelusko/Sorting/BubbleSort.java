@@ -31,7 +31,7 @@ class BubbleAlgo{
 }
 public class BubbleSort {
     public static void main(String[] args) {
-        int arr[] = {9,6,5,4,3,2,1};
+        int arr[] = {2,5,7,4,3,1};
         for(int k: arr){
             System.out.print(k+" ");
         }
