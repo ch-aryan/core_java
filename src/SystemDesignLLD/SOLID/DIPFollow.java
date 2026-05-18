@@ -100,7 +100,10 @@ This is DIP in action.
 
 🏆 Interview Explanation
 
-The Dependency Inversion Principle states that high-level modules should not depend on low-level modules. Both should depend on abstractions. This reduces coupling, improves testability, and allows implementations to be changed without affecting business logic.
+The Dependency Inversion Principle states that high-level modules should not depend on low-level modules.
+Both should depend on abstractions.
+This reduces coupling, improves testability, and allows implementations to be changed without
+affecting business logic.
 
 🧠 Memory Trick
 DIP = Depend on Interfaces, Not Implementations
