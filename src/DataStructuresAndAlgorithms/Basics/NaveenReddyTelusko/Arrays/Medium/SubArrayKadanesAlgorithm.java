@@ -37,7 +37,7 @@ public class SubArrayKadanesAlgorithm {
 
             }
         }
-        System.out.println(max);
+
         System.out.print("Subarray: ");
 
         for(int i = start; i <= end; i++){
@@ -52,10 +52,13 @@ public class SubArrayKadanesAlgorithm {
     }
 }
 /*
-The idea of Kadane's algorithm is to traverse over the array from left to right and for each element, find the maximum sum among all subarrays ending at that element. The result will be the maximum of all these values.
+The idea of Kadane's algorithm is to traverse over the array from left to right and for each element,
+find the maximum sum among all subarrays ending at that element.
+The result will be the maximum of all these values.
 Maximum Subarray Sum - Kadane's Algorithm
 Last Updated : 15 Apr, 2026
-Given an integer array arr[], find the subarray (containing at least one element) which has the maximum possible sum, and return that sum.
+Given an integer array arr[], find the subarray (containing at least one element)
+ which has the maximum possible sum, and return that sum.
 Note: A subarray is a continuous part of an array.
 
 Examples:

@@ -26,5 +26,7 @@ public class StaticInheritance {
 //        Parent.disp();
 
         obj.meth1();
+        ((Child) obj).disp();//downcasting but not recommended.
+
     }
 }

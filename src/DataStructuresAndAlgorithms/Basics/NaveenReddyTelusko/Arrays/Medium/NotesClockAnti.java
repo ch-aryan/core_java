@@ -3,7 +3,8 @@ package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.Arrays.Medium;
 public class NotesClockAnti {
 }
 /*
-This is a very important concept — once this clicks, all matrix rotation problems become easy. Let’s build it from intuition, not memorization.
+This is a very important concept — once this clicks,
+all matrix rotation problems become easy. Let’s build it from intuition, not memorization.
 
 🔹 Step 1: Understand direction using a real-life example
 
