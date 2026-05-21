@@ -17,6 +17,7 @@ class StaticMeth{
 
 }
 public class StaticMethods {
+
     public static void main(String[] args) {
         StaticMeth obj = new StaticMeth();
         obj.meth(2);
