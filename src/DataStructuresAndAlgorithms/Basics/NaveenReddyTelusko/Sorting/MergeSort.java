@@ -100,7 +100,7 @@ class Solution {
         int[] temp = new int [r-l+1];
         int low = l;
         int high = mid+1;
-        int k = 0;
+        int k = l;
 
         while(low<=mid && high <= r){
             if(arr[low] <= arr[high]){
