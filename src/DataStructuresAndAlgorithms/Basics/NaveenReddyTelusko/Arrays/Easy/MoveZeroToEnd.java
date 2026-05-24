@@ -24,6 +24,113 @@ public class MoveZeroToEnd {
         System.out.print(i + " ");
     }
     }
+    //even better appraoch two pointer.
+    public static void topApproach(int[] arr){
+        int index = 0;
+        for(int i =0;i<arr.length;i++){
+            if(arr[i] != 0){
+                int temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
+                index++;
+            }
+        }
+    }
+    /*
+    But There Is an Even Cleaner Approach (Most Popular)
+
+This is the standard two-pointer approach.
+
+class Solution {
+    void pushZerosToEnd(int[] arr) {
+
+        int index = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
+
+                index++;
+            }
+        }
+    }
+}
+Visualization
+
+Suppose:
+
+[1,0,2,0,3,4]
+
+Initially:
+
+index = 0
+i = 0
+arr[i] = 1
+
+Swap with index
+
+[1,0,2,0,3,4]
+
+index++
+
+index = 1
+i = 1
+arr[i] = 0
+
+Skip.
+
+i = 2
+arr[i] = 2
+
+Swap with index=1
+
+[1,2,0,0,3,4]
+i = 4
+arr[i] = 3
+
+Swap:
+
+[1,2,3,0,0,4]
+i = 5
+[1,2,3,4,0,0]
+
+Done.
+
+Why This Approach Is Loved
+
+Because:
+
+single pass
+elegant
+no extra filling loop
+stable ordering preserved
+very interview-friendly
+Your Current Thinking Level
+
+You are no longer coding like:
+
+“I memorized solution.”
+
+You are now:
+
+designing logic
+handling indexes
+separating phases
+thinking about movement of elements
+
+That is real growth in DSA.
+
+Now during revision, after solving each problem ask:
+
+Did I solve optimally?
+Can I simplify?
+Can I reduce conditions?
+Can I make it more readable?
+Can I explain pointer movement clearly?
+     */
 
 //✅ Code (Swap Approach)
     class Solution {
