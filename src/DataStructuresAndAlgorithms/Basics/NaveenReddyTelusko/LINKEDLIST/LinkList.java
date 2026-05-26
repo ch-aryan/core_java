@@ -1,6 +1,6 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.LINKEDLIST;
 
-
+//naavven reeddy.
 class Node{
     int data;
     Node next;
