@@ -67,16 +67,19 @@ public class HashMapRevision {
 
         Collection<String> values = map.values();
         Iterator<String> iterator = values.iterator();
+        System.out.println("this are all the values okay.");
         while(iterator.hasNext()){
             System.out.print(iterator.next()+" ");
         }
         System.out.println("******");
+        System.out.println("and this are the keys");
         Set<Integer> integers = map.keySet();
         Iterator<Integer> iterator1 = integers.iterator();
         while(iterator1.hasNext()){
             System.out.print(iterator1.next()+" ");
         }
         System.out.println("************");
+        System.out.println("and this are the both key and maps");
         Set<Map.Entry<Integer, String>> entries = map.entrySet();
         Iterator<Map.Entry<Integer, String>> iterator2 = entries.iterator();
         while (iterator2.hasNext()){
