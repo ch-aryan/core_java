@@ -1,0 +1,60 @@
+package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.GFGPOTD.day1to10;
+
+public class BasicArrayProblem {
+    public static void meth(int [] arr){
+        int n = arr.length;
+        int [] temp = new int[n];
+        temp = arr.clone();
+        arr[0] = temp[0] ^ temp[1];
+        for(int i = 1;i<n-1;i++){
+            arr[i] = temp[i-1] ^ temp[i+1];
+        }
+        arr[n-1] = temp[n-2] ^ temp[n-1];
+
+    }
+
+    public static void main(String[] args) {
+        int [] arr = {2,1,4,7};
+        int arr1[] = {5, 9, 2, 6, 7};
+        meth(arr);
+        for(int i : arr){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        meth(arr1);
+        for(int i : arr1){
+            System.out.print(i+" ");
+        }
+
+    }
+}
+/*
+Replace with XOR of Adjacent
+Difficulty: EasyAccuracy: 75.8%Submissions: 72K+Points: 2Average Time: 20m
+Given an array arr[] of n integers, modify the array in-place such that each element is replaced with the XOR of its adjacent elements.
+
+For the first element, update arr[0] = arr[0] ^ arr[1].
+For the last element, update arr[n-1] = arr[n-2] ^ arr[n-1].
+For all other elements, update arr[i] = arr[i-1] ^ arr[i+1].
+Note: Here, a ^ b represents the XOR operation between a and b.
+
+Examples :
+
+Input : arr[] = [2, 1, 4, 7]
+Output : [3, 6, 6, 3]
+Explanation:
+At index 0, arr[0] ^ arr[1] = 2 ^ 1 = 3
+At index 1, arr[0] ^ arr[2] = 2 ^ 4 = 6
+At index 2, arr[1] ^ arr[3] = 1 ^ 7 = 6
+At index 3, arr[2] ^ arr[3] = 4 ^ 7 = 3
+Thus, the updated array becomes [3, 6, 6, 3].
+Input : arr[] = [5, 9, 2, 6, 7]
+Output: [12, 7, 15, 5, 1]
+Explanation:
+At index 0, arr[0] ^ arr[1] = 5 ^ 9 = 12
+At index 1, arr[0] ^ arr[2] = 5 ^ 2 = 7
+At index 2, arr[1] ^ arr[3] = 9 ^ 6 = 15
+At index 3, arr[2] ^ arr[4] = 2 ^ 7 = 5
+At index 4, arr[3] ^ arr[4] = 6 ^ 7 = 1
+Thus, the updated array becomes [12, 7, 15, 5, 1].
+ */
