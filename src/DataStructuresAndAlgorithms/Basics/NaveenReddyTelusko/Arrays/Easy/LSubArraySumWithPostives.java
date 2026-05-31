@@ -702,3 +702,167 @@ Because:
 Prefix sum logic handled zeros correctly
 We stored first occurrence of sum = 2
 That gave maximum length*/
+/*
+Aryan, you've understood the **core idea correctly**, and yes, this approach works for both positive and negative numbers.
+
+However, there is **one small bug**.
+
+### The bug
+
+You wrote:
+
+```java id="p1zryo"
+map.put(0,1);
+```
+
+It should be:
+
+```java id="e1r8im"
+map.put(0,-1);
+```
+
+### Why?
+
+The map stores:
+
+```text
+prefixSum -> first index where it occurred
+```
+
+Before we start traversing the array:
+
+```text
+prefixSum = 0
+```
+
+This happens conceptually at index `-1`.
+
+So:
+
+```java id="87jqqn"
+map.put(0, -1);
+```
+
+---
+
+### Example where your code fails
+
+```java id="2g76gt"
+arr = {3};
+k = 3
+```
+
+At `i = 0`:
+
+```java id="ixcb2v"
+prefixSum = 3
+```
+
+Then:
+
+```java id="im0tq5"
+prefixSum - k = 0
+```
+
+Map contains:
+
+```java id="qv6h6t"
+0 -> 1
+```
+
+So:
+
+```java id="5z74kb"
+tempL = 0 - 1 = -1
+```
+
+which is nonsense.
+
+With:
+
+```java id="2a1tqk"
+0 -> -1
+```
+
+you get:
+
+```java id="v6y9zx"
+tempL = 0 - (-1) = 1
+```
+
+Correct.
+
+---
+
+### Another improvement
+
+You currently have:
+
+```java id="cnm43k"
+if(prefixSum == k){
+    len = i+1;
+}
+```
+
+This works.
+
+But if you use:
+
+```java id="b0v73r"
+map.put(0,-1);
+```
+
+then this special case becomes unnecessary.
+
+Because:
+
+```java id="5rtk3u"
+prefixSum - k = 0
+```
+
+will automatically be found in the map.
+
+Many interviewers prefer this cleaner version.
+
+---
+
+### Most important thing
+
+The fact that you said:
+
+> "I understood why sliding window fails."
+>
+> "I understood why prefix alone fails."
+>
+> "Now I understood why HashMap works."
+
+is much more valuable than memorizing the final code.
+
+That's exactly how an engineer builds intuition:
+
+```text
+Brute Force
+    ↓
+Prefix Sum
+    ↓
+Why Prefix Sum alone fails
+    ↓
+Sliding Window
+    ↓
+Why Sliding Window fails
+    ↓
+HashMap + Prefix Sum
+```
+
+At this point, I'd say your understanding of **Longest Subarray with Sum K (positive + negative numbers)** is around **8.5–9/10**. You're no longer memorizing; you're reasoning from the properties of the problem.
+
+One final question to test yourself:
+
+```java
+arr = [1, -1, 5, -2, 3]
+k = 3
+```
+
+Can you dry-run your HashMap solution and determine the longest length without executing the code? If you can do that comfortably, you've truly mastered this pattern.
+
+ */

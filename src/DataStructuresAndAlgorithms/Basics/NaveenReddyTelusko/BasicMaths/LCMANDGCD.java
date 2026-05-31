@@ -29,6 +29,7 @@ public class LCMANDGCD {
         int [] arr = {2,4,6,8};
         int[] arr1 = {19,18,17};
         System.out.println(gcd(48,12));
+        System.out.println(gcd(24,36));
         System.out.println(lcmOfTwoN(24,36));
 
         System.out.println(lcm(arr));
