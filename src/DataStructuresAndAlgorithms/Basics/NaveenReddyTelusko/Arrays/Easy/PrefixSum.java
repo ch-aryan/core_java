@@ -10,6 +10,8 @@ public class PrefixSum {
         }
         for(int i:arr1){
             System.out.print(i+" ");
+            System.out.println("it has been 180 days ");
+
         }
     }
 }
