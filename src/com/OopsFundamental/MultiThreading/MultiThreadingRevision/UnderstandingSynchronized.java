@@ -1,7 +1,7 @@
 package com.OopsFundamental.MultiThreading.MultiThreadingRevision;
 class Car implements Runnable {
     @Override
-    synchronized public void run() {
+    public void run() {
         try {
             String name = Thread.currentThread().getName();
             System.out.println(name + "has entered into parkin lot");
