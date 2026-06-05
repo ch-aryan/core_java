@@ -24,11 +24,12 @@ public class String0and1 {
     }
     public static void main(String[] args) {
         String str = "11000010001";
+        String ch = "fooland";
         System.out.println(kadanesAlgo(str));
-//        char[] arr = str.toCharArray();
-//        for(int i =0; i<arr.length;i++){
-//            System.out.print(arr[i]+" ");
-//        }
+       char[] arr = ch.toCharArray();
+        for(int i =0; i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+       }
 //        System.out.println();
 //
 //        char c = str.charAt(0);
