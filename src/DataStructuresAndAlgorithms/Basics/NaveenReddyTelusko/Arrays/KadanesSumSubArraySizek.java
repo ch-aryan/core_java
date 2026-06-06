@@ -81,6 +81,7 @@ class Algorithms{
         return max;
     }
 }
+//today learn lot of things.
 public class KadanesSumSubArraySizek {
     public static void main(String[] args) {
         int a[] = {1, -2, 2, -3};
