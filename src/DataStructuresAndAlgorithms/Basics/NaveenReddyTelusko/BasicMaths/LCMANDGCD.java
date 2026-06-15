@@ -12,6 +12,7 @@ public class LCMANDGCD {
     public static int lcmOfTwoN(int one , int two){
         int res = (one * two)/gcd(one , two);
         return res;
+        //need to learn
     }
 
     public static int gcd(int a , int b){
