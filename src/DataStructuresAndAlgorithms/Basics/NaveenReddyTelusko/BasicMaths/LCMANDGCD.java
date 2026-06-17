@@ -11,8 +11,10 @@ public class LCMANDGCD {
 
     public static int lcmOfTwoN(int one , int two){
         int res = (one * two)/gcd(one , two);
+        System.out.println("never give up there is hope till the last breathe.");
         return res;
         //need to learn
+        //never give up. there is a hope until the last breathe
     }
 
     public static int gcd(int a , int b){
