@@ -24,7 +24,7 @@ public class HeapAndStack {
         boolean i = false;
         while(i==false){
             System.out.println("hello true while looop");
-
+            System.out.println("need to learn lot of things.");
         }
     }
 }
