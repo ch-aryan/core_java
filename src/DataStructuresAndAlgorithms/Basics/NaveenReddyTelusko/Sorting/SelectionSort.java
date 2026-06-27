@@ -39,7 +39,7 @@ public class SelectionSort {
         SelectionAlgo.selectionMeth(arr);
 
         System.out.println("****************");
-
+        System.out.println("come on champ we can do it.");
     }
 }
 /* What is Selection Sort
