@@ -40,6 +40,7 @@ public class SelectionSort {
 
         System.out.println("****************");
         System.out.println("come on champ we can do it.");
+        System.out.println("lets go");
     }
 }
 /* What is Selection Sort
