@@ -9,6 +9,7 @@ public class SelectMinimumSubArraySum {
                 System.out.print(arr[j]+" ");
             }
             System.out.println();
+            System.out.println("hello");
         }
     }
 }
