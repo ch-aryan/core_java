@@ -329,4 +329,401 @@ else
 
 This is a very common mistake when learning stacks—not an algorithm mistake, but a **control flow (branching) mistake**. Your stack logic is sound; you just needed to ensure that `pop()` only happens when you're processing a **closing bracket**, not an opening one.
 
+First of all, your solution is **correct**. 👍 It passes the same logic that the first solution does. The difference is not correctness—it's **elegance, readability, and a small optimization**.
+
+Let's compare them like an interviewer would.
+
+---
+
+# Solution 1 (Optimized)
+
+```java
+Stack<Character> st = new Stack<>();
+
+for (char c : s.toCharArray()) {
+    if (c == '(') st.push(')');
+    else if (c == '{') st.push('}');
+    else if (c == '[') st.push(']');
+    else {
+        if (st.isEmpty() || st.pop() != c)
+            return false;
+    }
+}
+
+return st.isEmpty();
+```
+
+### Clever Idea
+
+Instead of storing
+
+```
+(
+[
+{
+```
+
+it stores
+
+```
+)
+]
+}
+```
+
+Expected closing brackets.
+
+Example
+
+```
+Input
+
+({[]})
+
+Stack
+
+push ')'      -> )
+push '}'      -> ) }
+push ']'      -> ) } ]
+
+Read ']'
+pop ']'
+
+Read '}'
+pop '}'
+
+Read ')'
+pop ')'
+```
+
+Notice we don't need to compare
+
+```
+(last == '(' && ch == ')')
+```
+
+because the stack already contains `')'`.
+
+This removes three comparisons every time.
+
+---
+
+# Your Solution
+
+```java
+push '('
+push '{'
+push '['
+```
+
+Then
+
+```java
+char last = stack.pop();
+
+if((last=='(' && ch==')')
+ ||(last=='[' && ch==']')
+ ||(last=='{' && ch=='}'))
+```
+
+This is perfectly valid.
+
+It is actually **easier to understand** for beginners because you're thinking exactly how humans think.
+
+---
+
+# Comparison
+
+| Feature              | Solution 1      | Your Solution   |
+| -------------------- | --------------- | --------------- |
+| Readability          | ⭐⭐⭐⭐            | ⭐⭐⭐⭐⭐           |
+| Cleverness           | ⭐⭐⭐⭐⭐           | ⭐⭐⭐             |
+| Comparisons          | Less            | More            |
+| Performance          | Slightly better | Slightly slower |
+| Interview Impression | Excellent       | Good            |
+
+The performance difference is extremely tiny. Both are **O(n)**.
+
+---
+
+# Which one would I write?
+
+If I were in an interview,
+
+I'd probably write yours first because it's easier to reason about.
+
+Then if I had time I'd say:
+
+> "We can optimize slightly by pushing the expected closing bracket instead of the opening bracket."
+
+Interviewers love hearing that.
+
+---
+
+# Why push closing brackets?
+
+Suppose we read
+
+```
+(
+```
+
+Normally we push
+
+```
+(
+```
+
+Later we must ask
+
+```
+Was it '(' ?
+Was it '[' ?
+Was it '{' ?
+```
+
+Three comparisons.
+
+Instead,
+
+when reading
+
+```
+(
+```
+
+push
+
+```
+)
+```
+
+Now later we only ask
+
+```
+Does popped == current?
+```
+
+One comparison.
+
+---
+
+# Now your second question
+
+## `charAt(i)` vs `toCharArray()`
+
+### Method 1
+
+```java
+for(int i = 0; i < s.length(); i++){
+    char ch = s.charAt(i);
+}
+```
+
+Here,
+
+every iteration Java fetches the character from the String.
+
+Conceptually
+
+```
+String
+--------
+H e l l o
+0 1 2 3 4
+
+charAt(0)
+
+↓
+
+return 'H'
+```
+
+No extra array is created.
+
+Memory
+
+```
+String
+
+↓
+
+charAt()
+
+↓
+
+character
+```
+
+---
+
+### Method 2
+
+```java
+for(char c : s.toCharArray()){
+}
+```
+
+Before the loop begins,
+
+Java creates
+
+```
+char[]
+
+H
+e
+l
+l
+o
+```
+
+Then the loop iterates over that array.
+
+So internally
+
+```
+String
+
+↓
+
+toCharArray()
+
+↓
+
+new char[]
+
+↓
+
+loop
+```
+
+---
+
+# Memory Difference
+
+Suppose
+
+```
+String = 1,000,000 characters
+```
+
+### charAt()
+
+Memory
+
+```
+String only
+```
+
+### toCharArray()
+
+Memory
+
+```
+String
+
++
+
+char[]
+```
+
+Almost double the character storage while the array exists.
+
+---
+
+# Speed Difference
+
+Years ago
+
+```
+charAt()
+```
+
+was usually a little faster because it avoided copying.
+
+Nowadays modern JVMs optimize both very well.
+
+Usually the difference is tiny.
+
+The bigger difference is memory.
+
+---
+
+# Which is preferred?
+
+Most Java developers follow this rule:
+
+### If you only need to read characters once
+
+```java
+for (int i = 0; i < s.length(); i++) {
+    char c = s.charAt(i);
+}
+```
+
+✅ Preferred
+
+No extra array.
+
+---
+
+### If you specifically need a mutable character array
+
+```java
+char[] arr = s.toCharArray();
+```
+
+Example
+
+```java
+Arrays.sort(arr);
+```
+
+or
+
+```java
+arr[0] = 'A';
+```
+
+Then `toCharArray()` makes sense.
+
+---
+
+# In coding interviews
+
+You'll commonly see both styles:
+
+```java
+for (char c : s.toCharArray())
+```
+
+because it's concise and avoids repeatedly writing `charAt(i)`.
+
+But if you're writing production Java or thinking about avoiding unnecessary allocations, many developers prefer:
+
+```java
+for (int i = 0; i < s.length(); i++) {
+    char c = s.charAt(i);
+}
+```
+
+---
+
+## One more improvement
+
+Your code already uses the modern stack type:
+
+```java
+Deque<Character> stack = new ArrayDeque<>();
+```
+
+This is preferred over:
+
+```java
+Stack<Character> stack = new Stack<>();
+```
+
+because `Stack` is a legacy synchronized class, while `ArrayDeque` is faster for single-threaded stack operations. So although the first solution has a slightly neater algorithm, **your choice of data structure is actually the modern Java best practice**. If you combine your `ArrayDeque` with the "push expected closing bracket" idea, you'd have what many experienced Java developers would consider the best version.
+
  */
