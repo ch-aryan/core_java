@@ -2,11 +2,53 @@ package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.stack;
 
 
 import java.util.*;
-import java.util.LinkedList;
+
+class MyStack {
+    Deque<Integer> queue = new ArrayDeque<>();
+    public MyStack() {
+
+    }
+
+    public void push(int x) {
+        int s = queue.size();
+        queue.offer(x);
+        for(int i =1; i<=s ; i++){
+            queue.offer(top());
+            queue.pop();
+        }
+    }
+
+    public int pop() {
+        if(empty()){
+            return -1;
+        }
+        return queue.pop();
+    }
+
+    public int top() {
+        if(empty()){
+            return -1;
+        }
+        return queue.peek();
+    }
+
+    public boolean empty() {
+        return queue.isEmpty();
+    }
+}
+
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack obj = new MyStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * boolean param_4 = obj.empty();
+ */
 
 class Suq{
     Queue<Integer> queue = new LinkedList<>();
-    Queue<Integer> queue1 = new ArrayDeque<>();
+
     public void push(int x) {
         int s = queue.size();
         queue.add(x);
