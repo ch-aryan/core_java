@@ -1,6 +1,41 @@
 package DataStructuresAndAlgorithms.Basics.NaveenReddyTelusko.stack;
+class Solution {
+    //this would take extra space complexity.
+    public int trap(int[] height) {
+        int ans = 0;
+        int prefixMax [] = prefix(height);
+        int suffixMax [] = suffix(height);
+        for(int i =0; i<height.length ; i++){
+            int leftMax = prefixMax[i];
+            int rightMax = suffixMax[i];
+            if(height[i] < leftMax && height[i] < rightMax){
+                ans = ans + Math.min(leftMax, rightMax) - height[i];
+            }
+        }
+        return ans;
+    }
+    public int[] prefix(int[] arr){
+        int ans [] = new int[arr.length];
+        ans[0] = arr[0];
+        for(int i =1 ;i<arr.length ; i++){
+            ans[i] = Math.max(ans[i-1] , arr[i]);
+        }
+        return ans;
+    }
+    public int[] suffix(int[] arr){
+        int ans [] = new int[arr.length];
+        ans[arr.length-1] = arr[arr.length-1];
+        for(int i =arr.length-2 ;i>=0 ; i--){
+            ans[i] = Math.max(ans[i+1] , arr[i]);
+        }
+        return ans;
+    }
 
+
+
+}
 public class TrappingRainWater {
+    //actually we don't need two sides right. only one side is enough.
     public static int totalWaterStore(int [] arr){
         int n = arr.length;
         int left = 0;
@@ -30,7 +65,10 @@ public class TrappingRainWater {
 
 
     public static void main(String[] args) {
+        Solution obj = new Solution();
         int[] arr1 = {10, 8, 3, 2, 12, 4 ,8};
+        int[] arr2 = {4,2,1,9,6,8}; //7
+        System.out.println(obj.trap(arr2));
         int i = totalWaterStore(arr1);
         System.out.println(i);
     }

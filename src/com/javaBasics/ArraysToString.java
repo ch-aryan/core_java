@@ -52,7 +52,10 @@ public class ArraysToString {
         System.out.println(t);// if we don't override toString method we get this.TelsukoRey@8efb846 address/ of the object.
         //to geet the actual data we need toString() method.
 
-        int [] [] arr = new int [][] { {2,3} , {3,4}};
+        int [] [] arr = new int [][] { {2,3} , {3,4} , {32, 1 , 2, 1}};
+        System.out.println("hello aryan");
+        System.out.println(arr[2].length);
+        System.out.println(arr.length);
         System.out.println(arr);//hashcode address is printed. here the team didn't override the toString() method.
 
         String str = "arayan";// here the team overriden the toString() method from the object class.
