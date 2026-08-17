@@ -1,6 +1,6 @@
 package com.javabasics;
 
-import java.util.HashSet;
+import java.util.*;
 
 public class HashingSet {
     public static void main(String[] args) {
@@ -13,5 +13,13 @@ public class HashingSet {
         System.out.println(set.contains(1));
         System.out.println(set.remove(1));
         System.out.println(set);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1,2);
+        System.out.println( map.get(1)+ " hello");
+        ArrayList<Integer> lis = new ArrayList<>();
+
+    }
+    public List<Integer> hello(){
+        return Arrays.asList(1, 2);
     }
 }
