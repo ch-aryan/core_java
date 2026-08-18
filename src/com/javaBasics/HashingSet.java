@@ -17,6 +17,7 @@ public class HashingSet {
         map.put(1,2);
         System.out.println( map.get(1)+ " hello");
         ArrayList<Integer> lis = new ArrayList<>();
+        System.out.println("hello world");
 
     }
     public List<Integer> hello(){
